@@ -8,6 +8,7 @@ import { classNames } from "../shared/config/lib/ClassNames/ClassNames";
 import { AppRouter } from "./provides/router";
 import { NavBar } from "widgets/NavBar";
 import { SideBar } from "widgets/SideBar";
+import { Modal } from "shared/ui/Modal";
 
 
 
@@ -16,8 +17,9 @@ const App = () => {
 
     return (
         <div className={classNames("app", {}, [theme])}>
-            <Suspense fallback="">
+            <Suspense fallback="">  <Modal />
                 <NavBar />
+              
                 <div className="content-page">
                     <SideBar />
                     <AppRouter />

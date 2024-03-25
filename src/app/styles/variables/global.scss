@@ -7,9 +7,12 @@
     --font-l: var(--font-size-l) / var(--font-line-l:24px) var(--font-family-main);
 
     //////////////Размеры
-    /// 
     --navbar-height: 50px;
     --sidebar-width: 300px;
     --sidebar-width-collapsed: 100px
+
+    /////////// z - Индексы
+    --modal-z-index: 10;
+
 
 }

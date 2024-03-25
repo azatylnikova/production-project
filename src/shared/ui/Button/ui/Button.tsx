@@ -6,6 +6,7 @@ import cls from "./Button.module.scss"
 export enum ThemeButton {
  // eslint-disable-next-line no-unused-vars
  CLEARL = 'clear',
+ OUTLINE = 'outline'
 
 }
 
