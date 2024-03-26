@@ -1,7 +1,11 @@
+/* eslint-disable i18next/no-literal-string */
 import { classNames } from "shared/config/lib/ClassNames/ClassNames"
 import cls from './NavBar.module.scss'
-import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink"
 import { useTranslation } from "react-i18next"
+import { Modal } from "shared/ui/Modal"
+import { useCallback, useState } from "react"
+import { Button } from "shared/ui/Button"
+import { ThemeButton } from "shared/ui/Button/ui/Button"
 
 
 
@@ -11,12 +15,31 @@ interface NavBarProps {
 export const NavBar = ({ className }: NavBarProps) => {
 
     const { t } = useTranslation()
+
+    const [isAuthModal, setIsAuthModal] = useState(false)
+
+    ///////////////// Ссылки при передачи пропсов нужно сохранять
+    const onToggleModal = useCallback(()=>{
+        setIsAuthModal((prev) => !prev)
+    }, [])
+
+    
     return (
         <div className={classNames(cls.Navbar, {}, [className])}>
           
             <div className={cls.links}>
-                <AppLink theme={AppLinkTheme.PRIMARY} className={cls.mainLink} to={'/'}>{t('Главная')}</AppLink>
-                <AppLink theme={AppLinkTheme.SECONDARY} to={'/about'}>{t('О сайте')}</AppLink>
+                <Button 
+                    theme={ThemeButton.OUTLINE}
+                    className={cls.links}
+                    onClick={onToggleModal}
+                >
+                    {t('Войти')}
+                </Button>
+                <Modal  isOpen={isAuthModal} onClose={onToggleModal}>
+
+                    afsfasfasfasfasffsfasfasf
+                </Modal>
+             
             </div>
         </div>
     )
